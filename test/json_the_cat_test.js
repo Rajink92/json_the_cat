@@ -16,3 +16,12 @@ describe('fetchBreedDescription', () => {
     });
   });
 });
+
+it('returns an error for not a cat breed', (done) => {
+  fetchBreedDescription('thisIsNotACatBreed.', (err, desc) => {
+    assert.isNotNull(err);
+    assert.equal(desc, null);
+
+    done();
+  });
+});
